@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Comfortaa:wght@300..700&family=Grey+Qo&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Rose:wght@300..700&family=Rowdies:wght@300;400;700&family=Silkscreen&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <nav class="bg-gradient-to-r from-lime-200 to-lime-900">
+        <div data-aos="fade-down" class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex flex-shrink-0 items-center">
+                <img class="h-8 w-auto" src="./images/Starbucks-logo.png" alt="Your Company">
+              </div>
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="#home" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">HOME</a>
+                  <a href="#shop" class="rounded-md px-3 py-2 text-sm font-medium text-black-300 hover:bg-gray-700 hover:text-white">ORDER</a>
+                  <a href="#Login" class="rounded-md px-3 py-2 text-sm font-medium text-black-300 hover:bg-gray-700 hover:text-white">PAY</a>
+                  <a href="#connect" class="rounded-md px-3 py-2 text-sm font-medium text-black-300 hover:bg-gray-700 hover:text-white">CONNECT</a>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">View notifications</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                </svg>
+              </button>
+      
+              <!-- Profile dropdown -->
+              <div class="relative ml-3">
+                <div>
+                  <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <span class="absolute -inset-1.5"></span>
+                    <span class="sr-only">Open user menu</span>
+                    <img class="h-8 w-8 rounded-full" src="./images/f1a8c9674a444c4737782e3a88e2d4b3.jpg" alt="">
+                  </button>
+                </div>
+      
+                <!--
+                  Dropdown menu, show/hide based on menu state.
+      
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">HOME</a>
+            <a href="#shop" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">ORDER</a>
+            <a href="#Login" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">PAY</a>
+            <a href="#connect" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">CONNECT</a>
+          </div>
+        </div>
+      </nav>
+      <!-- Hme -->
+      <div id="home" class="flex flex-wrap h-full bg-gradient-to-r from-lime-200 to-lime-900">
+        <div class="md:w-32 lg:w-2/5">
+            <h1 class="animate__animated animate__jello bg-gradient-to-r from-green-600 to-teal-900 bg-clip-text text-transparent text-6xl Title">
+                Brewing the Starbucks Experience: <br> Your Guide to Coffee Culture and Beyond
+            </h1>
+        </div>
+        <div  data-aos="fade-up"data-aos-duration="3000">
+            <img class=" md:w-32 lg:w-full cup2" src="./images/starbucks cup2.png">
+        </div>
+    </div>
+    <!-- Shop -->
+<div id="shop" class="flex flex-wrap justify-center h-full bg-gradient-to-r from-lime-200 to-lime-900">
+    <div data-aos="zoom-in-up" class="flex flex-col font-sans w-full sm:w-1/2 lg:w-1/3 mt-10 md:mt-20 md:ml-8">
+      <div class="flex-none w-full relative">
+        <img src="./images/product.webp" alt="" class="w-full h-60 object-cover rounded-lg" loading="lazy" />
+      </div>
+      <form class="flex-auto p-6">
+        <div class="flex flex-wrap">
+          <h1 class="flex-auto font-medium text-slate-900">
+            Double Chocolate Chip Frappuccino
+          </h1>
+          <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-black-800">
+            $39.00
+          </div>
+          <div class="text-sm font-medium text-black-400">
+            In stock
+          </div>
+        </div>
+        <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+        </div>
+        <div class="flex space-x-4 mb-5 text-sm font-medium">
+          <div class="flex-auto flex space-x-4">
+            <button class="h-10 px-6 font-semibold rounded-full bg-lime-600 text-white" type="submit">
+              Buy now
+            </button>
+            <button class="h-10 w-36 px-6 font-semibold rounded-full border border-slate-200 bg-lime-600 text-white" type="button">
+              Add Item
+            </button>
+          </div>
+          <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-lime-600 bg-violet-50" type="button" aria-label="Like">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
+        <p class="text-sm text-white">
+          Free shipping on all continental US orders.
+        </p>
+      </form>
+    </div>
+  
+    <div data-aos="zoom-in-up" class="flex flex-col font-sans w-full sm:w-1/2 lg:w-1/3 mt-10 md:mt-20 md:ml-8">
+      <div class="flex-none w-full relative">
+        <img src="https://starbucksstatic.cognizantorderserv.com/Items/Large/webP/100501.webp" alt="" class="w-full h-60 object-cover rounded-lg" loading="lazy" />
+      </div>
+      <form class="flex-auto p-6">
+        <div class="flex flex-wrap">
+          <h1 class="flex-auto font-medium text-slate-900">
+            Java Chip Frappuccino
+          </h1>
+          <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-black-800">
+            $46.00
+          </div>
+          <div class="text-sm font-medium text-black-400">
+            In stock
+          </div>
+        </div>
+        <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+        </div>
+        <div class="flex space-x-4 mb-5 text-sm font-medium">
+          <div class="flex-auto flex space-x-4">
+            <button class="h-10 px-6 font-semibold rounded-full bg-lime-600 text-white" type="submit">
+              Buy now
+            </button>
+            <button class="h-10 w-36 px-6 font-semibold rounded-full border border-slate-200 bg-lime-600 text-white" type="button">
+              Add Item
+            </button>
+          </div>
+          <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-lime-600 bg-violet-50" type="button" aria-label="Like">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
+        <p class="text-sm text-white">
+          Free shipping on all continental US orders.
+        </p>
+      </form>
+    </div>
+  
+    <div data-aos="zoom-in-up" class="flex flex-col font-sans w-full sm:w-1/2 lg:w-1/3 mt-10 md:mt-20 md:ml-8">
+      <div class="flex-none w-full relative">
+        <img src="https://starbucksstatic.cognizantorderserv.com/Items/Large/webP/100385.webp" alt="" class="w-full h-60 object-cover rounded-lg" loading="lazy" />
+      </div>
+      <form class="flex-auto p-6">
+        <div class="flex flex-wrap">
+          <h1 class="flex-auto font-medium text-slate-900">
+            Iced Cafe Latte
+          </h1>
+          <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-black-600">
+            $15.00
+          </div>
+          <div class="text-sm font-medium text-black-400">
+            In stock
+          </div>
+        </div>
+        <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+        </div>
+        <div class="flex space-x-4 mb-5 text-sm font-medium">
+          <div class="flex-auto flex space-x-4">
+            <button class="h-10 px-6 font-semibold rounded-full bg-lime-600 text-white" type="submit">
+              Buy now
+            </button>
+            <button class="h-10 w-36 px-6 font-semibold rounded-full border border-slate-200 bg-lime-600 text-white" type="button">
+              Add Item
+            </button>
+          </div>
+          <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-lime-600 bg-violet-50" type="button" aria-label="Like">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
+        <p class="text-sm text-white">
+          Free shipping on all continental US orders.
+        </p>
+      </form>
+    </div>
+    <div data-aos="zoom-in-up" class="flex flex-col font-sans w-full sm:w-1/2 lg:w-1/3 mt-10 md:mt-20 md:ml-8">
+        <div class="flex-none w-full relative">
+          <img src="https://starbucksstatic.cognizantorderserv.com/Items/Large/webP/M107781.webp" alt="" class="w-full h-60 object-cover rounded-lg" loading="lazy" />
+        </div>
+        <form class="flex-auto p-6">
+          <div class="flex flex-wrap">
+            <h1 class="flex-auto font-medium text-slate-900">
+                Iced Stardust Macchiato
+            </h1>
+            <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-black-600">
+              $10.00
+            </div>
+            <div class="text-sm font-medium text-black-400">
+              In stock
+            </div>
+          </div>
+          <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+          </div>
+          <div class="flex space-x-4 mb-5 text-sm font-medium">
+            <div class="flex-auto flex space-x-4">
+              <button class="h-10 px-6 font-semibold rounded-full bg-lime-600 text-white" type="submit">
+                Buy now
+              </button>
+              <button class="h-10 w-36 px-6 font-semibold rounded-full border border-slate-200 bg-lime-600 text-white" type="button">
+                Add to Item
+              </button>
+            </div>
+            <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-lime-600 bg-violet-50" type="button" aria-label="Like">
+              <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+              </svg>
+            </button>
+          </div>
+          <p class="text-sm text-white">
+            Free shipping on all continental US orders.
+          </p>
+        </form>
+      </div>
+  </div>
+  <!-- Login -->
+  <div id="Login" class="flex flex-wrap justify-center h-full bg-gradient-to-r from-lime-200 to-lime-900 shadow-xl ">
+    <div class="loginHead w-full sm:w-auto mb-4 sm:mb-0 text-center sm:text-left">
+      <h1 class="bg-gradient-to-r from-lime-800 to-stone-800 bg-clip-text text-transparent autoShow  sm:text-5xl md:text-6xl lg:text-9xl">Sip In</h1>
+    </div>
+    <div class="flex flex-wrap justify-center rounded-md bg-gradient-to-r from-lime-200 to-lime-900 p-4 sm:p-6 md:p-8 loginForm w-full sm:w-1/2 lg:w-1/3">
+      <form action="" class="w-full">
+        <input class="mt-10 w-full px-6 py-3 rounded-md" type="text" placeholder="Enter Email ID or Mobile Number">
+        <br>
+        <input class="mt-10 w-full px-6 py-3 rounded-md" type="text" placeholder="Enter Password">
+        <br><br>
+        <p class="text-white text-lg font-bold text-center sm:text-left ">Don't have an account? <span class="text-green-800 font-semibold cursor-pointer">SignUp</span></p>
+        <br>
+        <div class="flex justify-center sm:justify-start">
+          <button class="mt-10 ml-56 px-10 py-3 rounded-md bg-black font-semibold text-lime-600 hover:bg-green-800 hover:text-white">Login</button>
+        </div>
+        <p class="mt-10 text-white text-lg font-bold text-center sm:text-left">Facing trouble logging in?<span class="text-green-800 font-semibold cursor-pointer"> Get Help</span></p>
+      </form>
+    </div>
+  </div>
+
+  <section id="connect" class="h-full bg-gradient-to-r from-lime-200 to-lime-900 ">
+    <div class=" text-5xl md:text-7xl lg:text-9xl font-bold bg-gradient-to-r from-lime-800 to-stone-800 bg-clip-text text-transparent autoBlur text-center">ANUGRAH</div>
+    <div class="mt-16 md:mt-32 sm:ml-0 md:ml-28 lg:ml-56 text-5xl md:text-7xl lg:text-9xl font-bold bg-gradient-to-r from-lime-800 to-stone-800 bg-clip-text text-transparent autoBlur text-center">DESIGNER</div>
+    <div class="mt-16 md:mt-32 text-5xl md:text-7xl lg:text-9xl font-bold bg-gradient-to-r from-lime-800 to-stone-800 bg-clip-text text-transparent autoBlur text-center">DEVELOPER</div>
+    <div class="mt-16 md:mt-32 sm:ml-0 md:ml-28 lg:ml-56 text-5xl md:text-7xl lg:text-9xl font-bold bg-gradient-to-r from-lime-800 to-stone-800 bg-clip-text text-transparent autoBlur text-center">CONNECT</div>
+    <div class="mt-16 md:mt-32 sm:mr-0 lg:mr-56 text-5xl md:text-7xl lg:text-9xl font-bold bg-gradient-to-r from-lime-800 to-stone-800 bg-clip-text text-transparent autoBlur text-center">SEE MORE</div>
+  </section>
+  
+  
+  <footer id="footer" class="flex flex-wrap justify-center h-full bg-gradient-to-r from-lime-200 to-lime-900">
+    <div class="mt-20 sm:mt-36 md:mt-52 lg:mt-72 flex flex-col sm:flex-row justify-center items-center content w-full">
+      <div class="flex-initial w-full sm:w-80 md:w-96 lg:w-80 text-lg px-6 py-6 font-semibold bg-gradient-to-r from-yellow-100 to-lime-800 rounded-md shadow-xl shadow-black hover:w-full sm:hover:w-96 hover:text-orange-600 mb-6 sm:mb-0">
+        At Starbucks, we believe that every cup of coffee tells a story, whether it's shared with friends, enjoyed in a quiet moment, or sipped on the go. Our commitment to quality, sustainability, and community drives everything we do, from sourcing the finest coffee beans to crafting each drink with care. We invite you to explore the rich flavors, aromas, and experiences that make Starbucks a beloved part of your day.
+      </div>
+      <div class="sm:ml-10 md:ml-20 lg:ml-56 flex-initial w-full sm:w-80 md:w-96 lg:w-80 text-lg px-6 py-6 font-semibold bg-gradient-to-r from-yellow-100 to-lime-800 rounded-md shadow-xl shadow-black hover:w-full sm:hover:w-96 hover:text-orange-600 mb-6 sm:mb-0">
+        Beyond just coffee, Starbucks is a place where connections are made and moments are cherished. We strive to create welcoming spaces where everyone feels at home, whether you're here to work, relax, or simply enjoy a favorite beverage. Our stores are more than just a stop along your journey—they are a part of your story, a place where you can be yourself and savor the small joys of life.
+      </div>
+      <div class="sm:ml-10 md:ml-20 lg:ml-56 flex-initial w-full sm:w-80 md:w-96 lg:w-80 text-lg px-6 py-6 font-semibold bg-gradient-to-r from-yellow-100 to-lime-800 rounded-md shadow-xl shadow-black hover:w-full sm:hover:w-96 hover:text-orange-600">
+        Thank you for choosing Starbucks as your coffee destination. As we continue to grow and innovate, we remain dedicated to our mission of nurturing the human spirit—one person, one cup, and one neighborhood at a time. We look forward to serving you, creating new memories together, and sharing the passion that makes Starbucks more than just a coffee shop, but a part of your everyday life.
+      </div>
+    </div>
+  </footer>
+  
+      
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</html>
